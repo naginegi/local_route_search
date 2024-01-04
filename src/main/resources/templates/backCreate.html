@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>検索機能(管理者)</title>
+<link th:href="@{/css/back.css}" rel="stylesheet"
+	th:src="@{'/css/front.css?_=' + @timestamp}" />
+<script type="text/javascript" th:src="@{js/back.js}"></script>
+</head>
+<body class="body">
+	<!-- onload="localRouteSelect();createLocalSelect()" -->
+	<div class="area">
+
+		<div class="title">
+			<a th:href="@{/frontLocal}">
+				<h1>日本地域路線檢索機能</h1 >
+				<h2 class="h2">(管理者側)</h2>
+			</a>
+<!-- 			<p th:each="data : @{/total_data}" th:text="${data}"></p> -->
+		</div>
+
+
+		<h1>路線や駅追加</h1>
+		<a th:href="@{/backPrefLine}">			
+			<button id="clear" style="font-size: 12pt;">戻る</button>
+		</a>
+			<p class="error_code" th:if="${code != 'Successful'}" th:value="${code}" id="code" th:text="${code}" ></p>
+		<form class="create_area" th:action="backCreate" method="post">
+			<label>都道府</label> 
+			<input class="input_text" name="prefName" th:value="${prefName}" id="prefName">
+			<label>市町村</label>
+			<input class="input_text" name="localName" th:value="${localName}" id="localName">
+			<label>路線名</label> 
+			<input class="input_text" name="lineName" th:value="${lineName}" id="lineName">
+			<label>駅名</label>
+			<input class="input_text" name="stationName" th:value="${stationName}" id="stationName"> 
+			<label>住所</label>
+			<input class="input_text" name="address" th:value="${stationName}" id="address">
+			<button class="create_btn" 
+				style="font-size: 12pt;">追加</button>
+<!-- 			th:onclick="checkParams()" -->
+<!-- 			<input type="hidden" name="code" th:value="${code}" id="code"> -->
+		</form>
+		<hr>
+	</div>
+
+</body>
+</html>

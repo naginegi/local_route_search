@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>お知らせ</title>
+<link th:href="@{/css/obj/objbackCreate.css}" rel="stylesheet"
+	th:src="@{'/css/obj/objbackCreate.css?_=' + @timestamp}" />
+<script type="text/javascript" th:src="@{/js/obj/objbackCreate.js}"></script>
+
+</head>
+<body class="body">
+	<div class="area">
+		<div class="title" th:fragment="stage" style="display: flex;flex-direction: column;">
+				<div class="title_font">
+					<p >お知らせ</p>
+				</div>
+				<div class="num">
+					<span class="title_num" style="color:white; background-color:#468e9f;">0</span>
+					<span class="title_num">1</span>
+					<span class="title_num">2</span>
+					<span class="title_num">3</span>
+					<span class="title_num">4</span>
+					<span class="title_num">5</span>
+					<span class="title_num">6</span>
+<!-- 					<span class="title_num">7</span> -->
+				</div>
+				<div class="text">
+					<span class="title_text">お知らせ</span>
+					<span class="title_text">場所の追加</span>
+<!-- 					<span class="title_text">新增市町村</span> -->
+					<span class="title_text">基本情報の追加</span>
+					<span class="title_text">設備情報の追加</span>
+					<span class="title_text">料金情報の追加</span>
+					<span class="title_text">周辺情報の追加</span>
+					<span class="title_text">確認ページ</span>
+				</div >
+				<div>
+				<span style="color: red;font-size:16pt;">ない場合は 'なし' を入力してください</span>
+				</div>
+				<div class="btn">
+				<form action="/objTemp/objback" method="get">
+					<button class="title_btn">返す</button>
+				</form>
+				<form action="Pref"  method="get">
+					<button class="title_btn">了解しました。</button>
+				</form>
+				</div>
+		</div>
+	</div>
+</body>
+</html>

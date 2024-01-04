@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>場所の追加</title>
+<link th:href="@{/css/obj/objbackCreate.css}" rel="stylesheet"
+	th:src="@{'/css/obj/objbackCreate.css?_=' + @timestamp}" />
+<script type="text/javascript" th:src="@{/js/obj/objbackCreate.js}"></script>
+</head>
+<body class="body" onload="get_session_pref(),get_session_local()">
+	<div class="area">
+		<div class="title" th:fragment="stage" style="display: flex;flex-direction: column;">
+				<div class="title_font">
+					<p >場所の追加</p>
+				</div>
+				<div class="num">
+				<a href="stage">
+					<span class="title_num" style="color:white; background-color:#468e9f;">0</span>
+				</a>
+					<span class="title_num" style="color:white; background-color:#468e9f;">1</span>
+					<span class="title_num">2</span>
+					<span class="title_num">3</span>
+					<span class="title_num">4</span>
+					<span class="title_num">5</span>
+					<span class="title_num">6</span>
+<!-- 					<span class="title_num">7</span> -->
+				</div>
+			<div class="contain">
+			<div  style="height:50px;display: flex; justify-content: center;">
+				<select id="select_pref" style="width: 150px; font-size: 14pt;" name="select_pref" onchange="session_pref()">
+					<option value="" disabled selected>地域を選択</option>
+					<option th:each="line : ${pref_data}" th:text="${line}"
+						th:value="${line}"></option>
+				</select>
+
+				<button id="select_pref_btn" type="submit" onclick="session_pref()" class="search_btn" style="font-size: 12pt;opacity: 0">次に</button>
+			</div>
+			<form id="form" th:action="Building" method="POST" style="height:50px;display: flex; justify-content: center;">
+				<select id="select_loacl" style="width: 150px; font-size: 14pt;" name="select_loacl">
+					<option value="" disabled selected>地域を選択</option>
+<!-- 					<option th:each="local : ${local_data}" th:text="${local.localName}" th:value="${local.localName}"></option> -->
+<!-- 					<option th:unless="${local_data != null and local_data.size() > 0}">No options available</option> -->
+<!-- 					<option th:each="local : ${local_data}" th:text="${local.localName}" -->
+<!-- 						th:value="${local.localName}"></option> -->
+				</select>
+<!-- 					<input id="hiddenInput_local_data" type="hidden" th:attr="value=${local_data}" /> -->
+				<button id="select_pref_btn" type="submit" onclick="session_local()" class="search_btn" style="font-size: 12pt;">次に</button>
+				<input type="hidden" id="localData" th:value="${local_data}"/>
+			</form>
+				<div class="btn">
+					<form action="stage">
+						<button class="title_btn" onclick="clear_session_pref()">返す</button>
+					</form>
+<!-- 					<form action="Local" method="get"> -->
+<!-- 						<button class="title_btn">下一步</button> -->
+<!-- 					</form> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

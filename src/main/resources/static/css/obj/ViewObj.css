@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+*{	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family:monospace;
+	}
+*::-webkit-scrollbar{
+/* 	display:none; */
+}
+a{
+	text-decoration:none;
+	color:white;
+}
+
+.body {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	position: relative;
+	height: 100vh;
+	background-image: url('../../../img/house2.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.area {
+	width: 80vw;
+/* 	height: 100vh; */
+	/*border: 5px solid #468e9f; */
+	position:relative;
+	margin-top: 90px;
+	border-radius: 20px;
+	padding: 0px 25px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+	width: 100%;
+	height: 10%; 
+/* 	border: 1px solid black; */
+	margin-bottom: 50px; 
+	display: flxed;
+	justify-content: center;
+	align-items: center;
+	backdrop-filter: blur(30px);
+}
+
+.title_font {
+	color: white;
+    font-size: 4rem;
+    font-weight: 600;
+    margin-top:2rem;
+}
+
+.contain {
+/* 	min-height: 450px; */
+/* 	width:100%;	 */
+/* 	border: 1px solid; */
+	margin-bottom: 25px;
+/* 	padding: 15px 60px; */
+/* 	position:absolute; */
+/* 	bottom:10%; */
+	display:flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items:center;
+	backdrop-filter: blur(10px);
+	color:white;
+	width: 100%;
+    max-height: 550px;
+    overflow: auto;
+}
+
+
+
+/* 捲軸底色 */
+#style-3::-webkit-scrollbar-track {
+/*   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+  background-color: #ebcea500;
+}
+/* //捲軸寬度 */
+#style-3::-webkit-scrollbar {
+  width: 15px;
+  box-shadow: inset 0 0 4px 0px white;
+  border-radius: 10px
+  
+}
+/* //捲軸本體顏色 */
+#style-3::-webkit-scrollbar-thumb {
+  background-color: white;
+  box-shadow: inset 0 0 10px 4px #d5953b;
+  border-radius: 10px
+/*   border: 1px solid black; */
+  
+}
+
+.all{
+	
+}
+
+.form{
+	border: 1px solid;
+    width: 50vw;
+    padding: 3rem;
+    font-size: 18pt;
+    margin: 4rem;
+}
+
+.bu{
+	margin-bottom: 2rem;
+}
+
+.nearUl{
+	
+}
+
+.room{
+	
+}
+
+.roomBar{
+	border: 1px solid;
+/* 	width: 25%; */
+    display: flex;
+    justify-content: center;
+}
+
+.roomContain{
+	border: 1px solid;
+	display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+
+.span{
+	width: 25%;
+    display: flex;
+    justify-content: center;
+}
+
+
+

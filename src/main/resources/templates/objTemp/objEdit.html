@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>確認ページ</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link th:href="@{/css/obj/NewObjEdit.css}" rel="stylesheet"
+	th:src="@{'/css/obj/NewObjEdit.css?_=' + @timestamp}" />
+<script type="text/javascript" th:src="@{/js/obj/objback.js}"></script>
+</head>
+<body class="body" onload="get_total_data()">
+	<input id="totalData" type="hidden" th:value="${total_data}">
+	
+	<div class="area" >
+		<div class="title" th:fragment="stage" style="display: flex;flex-direction: column;">
+				<div class="title_font">
+					<p >確認ページ</p>
+				</div>
+<!-- 				<div class="num">			 -->
+<!-- 					<span class="title_num" style="color:white; background-color:#ebc1c1;">0</span> -->
+						
+<!-- 					<span class="title_num" style="color:white; background-color:#ebc1c1;">1</span> -->
+				
+<!-- 					<span class="title_num" style="color:white; background-color:#ebc1c1;">2</span> -->
+							
+<!-- 					<span class="title_num" style="color:white; background-color:#ebc1c1;">3</span> -->
+							
+<!-- 					<span class="title_num" style="color:white; background-color:#ebc1c1;">4</span> -->
+				
+<!-- 					<span class="title_num" style="color:white; background-color:#ebc1c1;">5</span> -->
+										
+<!-- 					<span class="title_num" style="color:white; background-color:#ebc1c1;">6</span> -->
+<!-- <!-- 					<span class="title_num">7</span> -->
+<!-- 				</div> -->
+			<div class="contain" id="style-3">
+			
+			
+			<h1 style="margin-bottom: 2rem;">基本情報の追加:</h1>
+			&emsp;
+			<div class="build_form" >
+	  			
+	  			<div class="form">
+
+				<label class="form_label" for="buildingName">建物名称:</label>
+    			<input class="form_input" type="text" id="buildingName" name="buildingName" disabled>
+
+   			 	<label class="form_label" for="buildingAddress">所 在 地:</label>
+    			<input class="form_input" type="text" id="buildingAddress" name="buildingAddress" disabled>
+
+    			<label class="form_label" for="buildingType">種    類:</label>
+    			<input class="form_input" type="text" id="buildingType" name="buildingType" disabled>
+
+    			<label class="form_label" for="buildingMaterials">構    造:</label>
+    			<input class="form_input" type="text" id="buildingMaterials" name="buildingMaterials" disabled>
+
+    			<label class="form_label" for="buildingArea">床 面 積:</label>
+    			<input class="form_input" type="text" id="buildingArea" name="buildingArea" disabled>
+				
+				</div>
+				<div class="form">
+
+    			<label class="form_label" for="buildingPref">都道府県:</label>
+    			<input class="form_input" type="text" id="buildingPref" name="buildingPref" disabled>
+				
+    			<label class="form_label" for="buildingLocal">市町村:</label>
+    			<input class="form_input" type="text" id="buildingLocal" name="buildingLocal" disabled>
+
+    			<label class="form_label" for="roomNum">住戸番号:</label>
+    			<input class="form_input" type="text" id="roomNum" name="roomNum" disabled>
+
+    			<label class="form_label" for="roomLayout">間取り:</label>
+    			<input class="form_input" type="text" id="roomLayout" name="roomLayout" disabled>
+
+    			<label class="form_label" for="yearOfBuild">築年數:</label>
+    			<input class="form_input" type="text" id="yearOfBuild" name="yearOfBuild" disabled>
+				
+				</div>
+
+				<div class="form">
+
+    			<label class="form_label" for="buildingPref">都道府県:</label>
+    			<input class="form_input" type="text" id="buildingPref" name="buildingPref" disabled>
+				
+    			<label class="form_label" for="buildingLocal">市町村:</label>
+    			<input class="form_input" type="text" id="buildingLocal" name="buildingLocal" disabled>
+
+    			<label class="form_label" for="roomNum">住戸番号:</label>
+    			<input class="form_input" type="text" id="roomNum" name="roomNum" disabled>
+
+    			<label class="form_label" for="roomLayout">間取り:</label>
+    			<input class="form_input" type="text" id="roomLayout" name="roomLayout" disabled>
+
+    			<label class="form_label" for="yearOfBuild">築年數:</label>
+    			<input class="form_input" type="text" id="yearOfBuild" name="yearOfBuild" disabled>
+				
+				</div>
+				
+				</div>
+				<hr>
+				<h3>設備情報の追加:</h3>
+				<div class="build_form" >
+				<div class="form">
+	
+			    <label class="form_label" for="electric">電気:</label>
+			    <input class="form_input" type="text" id="electric" name="electric" disabled>
+			
+			    <label class="form_label" for="gas">ガス:</label>
+			    <input class="form_input" type="text" id="gas" name="gas" disabled>
+			
+			    <label class="form_label" for="stove">コンロ:</label>
+			    <input class="form_input" type="text" id="stove" name="stove" disabled>
+			
+			    <label class="form_label" for="waterWorks">上水道:</label>
+			    <input class="form_input" type="text" id="waterWorks" name="waterWorks" disabled>
+		
+			    <label class="form_label" for="sewage">下水道:</label>
+			    <input class="form_input" type="text" id="sewage" name="sewage" disabled>
+			
+			    <label class="form_label" for="kitchen">台所:</label>
+			    <input class="form_input" type="text" id="kitchen" name="kitchen" disabled>
+			
+			    <label class="form_label" for="toilet">トイレ:</label>
+			    <input class="form_input" type="text" id="toilet" name="toilet" disabled>
+			
+			    <label class="form_label" for="bathroom">浴室:</label>
+			    <input class="form_input" type="text" id="bathroom" name="bathroom" disabled>
+			
+			    <label class="form_label" for="basin">洗面:</label>
+			    <input class="form_input" type="text" id="basin" name="basin" disabled>
+			
+			    
+			   
+			  </div>
+			  <div class="form">
+
+			
+				<label class="form_label" for="roofBalcony">ルーフバルコニー:</label>
+			    <input class="form_input" type="text" id="roofBalcony" name="roofBalcony" disabled>
+			    
+			    <label class="form_label" for="keyNum">鍵(何本):</label>
+			    <input class="form_input" type="text" id="keyNum" name="keyNum" disabled>
+			    
+			    <label class="form_label" for="elevator">エレベーター:</label>
+			    <input class="form_input" type="text" id="elevator" name="elevator" disabled>
+			    
+			    <label class="form_label" for="autoLock">オートロック:</label>
+			    <input class="form_input" type="text" id="autoLock" name="autoLock" disabled>
+			    
+			    <label class="form_label" for="mailBox">メールボックス:</label>
+			    <input class="form_input" type="text" id="mailBox" name="mailBox" disabled>
+			    
+			    <label class="form_label" for=deliveryBox>宅配ボックス:</label>
+			    <input class="form_input" type="text" id="deliveryBox" name="deliveryBox" disabled>
+			    
+			    <label class="form_label" for="parking">駐車場:</label>
+			    <input class="form_input" type="text" id="parking" name="parking" disabled>
+			    
+			    <label class="form_label" for="pet">ペット:</label>
+			    <input class="form_input" type="text" id="pet" name="pet" disabled>
+			    
+			    <label class="form_label" for="furniture">備附家具:</label>
+			    <input class="form_input" type="text" id="furniture" name="furniture" disabled>
+			    
+			    
+			
+			  </div>
+			  <div class="form">
+				<label class="form_label" for="washingMachine">洗濯機:</label>
+			    <input class="form_input" type="text" id="washingMachine" name="washingMachine" disabled>
+			
+ 				<label class="form_label" for="airConditioner">エアコン:</label>
+			    <input class="form_input" type="text" id="airConditioner" name="airConditioner" disabled>
+			
+			    <label class="form_label" for="light">照明器具:</label>
+			    <input class="form_input" type="text" id="light" name="light" disabled>
+			
+			    <label class="form_label" for="internet">インターネット:</label>
+			    <input class="form_input" type="text" id="internet" name="internet" disabled>
+			
+			    <label class="form_label" for="trunkRoom">トランクルーム:</label>
+			    <input class="form_input" type="text" id="trunkRoom" name="trunkRoom" disabled>
+			    
+			    <label class="form_label" for="TV">TV:</label>
+			    <input class="form_input" type="text" id="TV" name="TV" disabled>
+			    
+			    <label class="form_label" for="CATV">CATV:</label>
+			    <input class="form_input" type="text" id="CATV" name="CATV" disabled>
+
+			    <label class="form_label" for="yard">專用庭:</label>
+			    <input class="form_input" type="text" id="yard" name="yard" disabled>
+
+			    <label class="form_label" for="notes">備考:</label>
+			    <textarea class="form_input" id="notes" name="notes"  disabled></textarea>
+			  </div>
+			  </div>
+			  <hr>
+			  <h3>料金情報の追加:</h3>
+			  <div class="build_form" >
+			  <div class="form">
+					 <label class="form_label" for="rent">賃金:</label>
+				    <input class="form_input" type="number" id="rent" name="rent" disabled>
+				
+				    <label class="form_label" for="deposit">敷金:</label>
+				    <input class="form_input" type="number" id="deposit" name="deposit" disabled>
+				
+				    <label class="form_label" for="reward">禮金:</label>
+				    <input class="form_input" type="number" id="reward" name="reward" disabled>
+				
+				    <label class="form_label" for="commonExpenses">共益費:</label>
+				    <input class="form_input" type="number" id="commonExpenses" name="commonExpenses" disabled>
+				
+				    <label class="form_label" for="maxAmount">極度額:</label>
+				    <input class="form_input" type="number" id="maxAmount" name="maxAmount" disabled>
+				
+				    <label class="form_label" for="renewal">更新料:</label>
+				    <input class="form_input" type="number" id="renewal" name="renewal" disabled>
+				
+				    <label class="form_label" for="otherExpenses">その他料金:</label>
+				    <input class="form_input" type="text" id="otherExpenses" name="otherExpenses" disabled>
+				
+				    <label class="form_label" for="payMethods">支払う方法:</label>
+				    <input class="form_input" type="text" id="payMethods" name="payMethods" disabled>
+				
+				    <label class="form_label" for="rentPayDate">賃金 支付期限:</label>
+				    <input class="form_input" type="text" id="rentPayDate" name="rentPayDate" disabled>
+				
+				    <label class="form_label" for="commonExpensesDate">共益費 支付期限:</label>
+				    <input class="form_input" type="text" id="commonExpensesDate" name="commonExpensesDate" disabled>	
+
+			  		<label class="form_label" for="lessorName">賃主 名稱:</label>
+				    <input class="form_input" type="text" id="lessorName" name="lessorName" disabled>
+
+			  </div>
+			  <div class="form">
+				
+				    <label class="form_label" for="lessorPhone">賃主 電話:</label>
+				    <input class="form_input" type="text" id="lessorPhone" name="lessorPhone" disabled>
+				
+				    <label class="form_label" for="lessorAddress">賃主 地址:</label>
+				    <input class="form_input" type="text" id="lessorAddress" name="lessorAddress" disabled>
+				
+				    <label class="form_label" for="managerName">管理業者 名稱:</label>
+				    <input class="form_input" type="text" id="managerName" name="managerName" disabled>
+				
+				    <label class="form_label" for="manegerPhone">管理業者 電話:</label>
+				    <input class="form_input" type="text" id="manegerPhone" name="manegerPhone" disabled>
+				
+				    <label class="form_label" for="managerAddress">管理業者 地址:</label>
+				    <input class="form_input" type="text" id="managerAddress" name="managerAddress" disabled>
+				
+				    <label class="form_label" for="leaseDate">契約期間(年):</label>
+				    <input class="form_input" type="text" id="leaseDate" name="leaseDate" disabled>
+				
+				    <label class="form_label" for="leaseStartDate">契約開始期間:</label>
+				    <input class="form_input" type="text" id="leaseStartDate" name="leaseStartDate" disabled>
+				
+				    <label class="form_label" for="leaseEndDate">契約結束期間:</label>
+				    <input class="form_input" type="text" id="leaseEndDate" name="leaseEndDate" disabled>
+				
+				    <label class="form_label" for="checkDate">目的物件の引渡日:</label>
+				    <input class="form_input" type="text" id="checkDate" name="checkDate" disabled>
+				
+				    <label class="form_label" for="riderClause">特約条項:</label>
+				    <textarea class="form_input" type="text" id="riderClause" name="riderClause" disabled></textarea>
+						    
+				
+<!-- 				    <button class="form_btn" type="submit" onclick="session_fee()">Submit</button> -->
+				    <input id="feeInput" type="hidden" name="feeData" />
+				    <input id="prefInput" type="hidden" name="prefData" />
+			
+			  </div>
+			
+			
+			</div>
+			<hr>
+			<h3>周辺情報の追加:</h3>
+			<div class="build_form"  >
+				<ul class="nearData_list" id="nearDataList">
+					
+				</ul>
+			
+			</div>
+			<hr>
+			
+			
+				<div class="btn">
+					<form action="objfront">
+						<input id="hiddenInput2" type="hidden" name="prefData" />						
+						<button class="title_btn" >返す</button>
+					</form>
+<!-- 					<form action="savePage"> -->
+<!-- 						<button class="title_btn" onclick="save_data()" >完成</button> -->
+<!-- 						 <input id="totalInput" type="hidden" name="totalData" /> -->
+<!-- 					</form> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

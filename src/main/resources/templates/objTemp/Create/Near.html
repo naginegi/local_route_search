@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>周辺情報の追加</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link th:href="@{/css/obj/objbackCreate.css}" rel="stylesheet"
+	th:src="@{'/css/obj/objbackCreate.css?_=' + @timestamp}" />
+<script type="text/javascript" th:src="@{/js/obj/objbackCreate.js}"></script>
+</head>
+<body class="body" onload="get_nearLine_option(),set_created_nearData()">
+	<div class="area">
+		<div class="title" th:fragment="stage" style="display: flex;flex-direction: column;">
+				<div class="title_font">
+					<p >周辺情報の追加</p>
+				</div>
+				<div class="num">
+				<a href="stage">				
+					<span class="title_num" style="color:white; background-color:#468e9f;">0</span>
+				</a>
+				<a href="Pref">				
+					<span class="title_num" style="color:white; background-color:#468e9f;">1</span>
+				</a>
+				<a href="Building">				
+					<span class="title_num" style="color:white; background-color:#468e9f;">2</span>
+				</a>
+				<a href="Equipment">				
+					<span class="title_num" style="color:white; background-color:#468e9f;">3</span>
+				</a>
+				<a href="Fee">				
+					<span class="title_num" style="color:white; background-color:#468e9f;">4</span>
+				</a>			
+					<span class="title_num" style="color:white; background-color:#468e9f;">5</span>
+					<span class="title_num">6</span>
+<!-- 					<span class="title_num">7</span> -->
+				</div>
+			<div class="contain" style="width: 100%;min-height: 300px;">
+			<div class="build_form" th:action="Near" method="POST">
+	  			<div class="form">
+	  			
+					<label class="form_label" for="nearLine">路線:</label>
+					<select class="form_input" id="nearLine" name="nearLine" onchange="get_nearStation_option()" required>
+					<option value="" disabled selected>地域を選択</option>
+					</select>
+<!-- 				    <input class="form_input" type="text" id="nearLine" name="nearLine" required> -->
+				    <label class="form_label" for="warkingTime">駅徒歩分:</label>
+    				<input class="form_input" type="text" id="warkingTime" name="warkingTime" required>
+				
+
+			  </div>
+			  <div class="form">
+				
+				    <label class="form_label" for="nearStation">駅:</label>
+				    <select class="form_input" id="nearStation" name="nearStation" required></select>
+<!-- 				    <input class="form_input" type="text" id="nearStation" name="nearStation" required> -->
+				    
+				    <button class="form_btn" type="submit" onclick="set_near()">追加</button>
+  					<input id="nearInput" type="hidden" name="nearDataList" />
+  					<input id=stationDataJson type="hidden" th:value="${stationDataJson}" />
+			
+			  </div>
+			</div>
+			<hr>
+			<i class="fa-solid fa-trash-can" onclick="dele_nearData()"></i>
+				<ul class="nearData_list" id="nearDataList">
+					
+				</ul>
+			<hr>
+				<div class="btn">
+					<form action="Fee">
+<!-- 						<input id="hiddenInput" type="hidden" name="select_pref" />						 -->
+						<button class="title_btn" onclick="clear_session_near()" >返す</button>
+<!-- 						<button class="title_btn" onclick="session_near()" >完成</button> -->
+					</form>
+					<form id="near_form" action="complete">
+<!-- 						<input id="hiddenInput" type="hidden" name="select_pref" />						 -->
+<!-- 						<button class="title_btn" onclick="clear_session_near()" >返回</button> -->
+						<button class="title_btn" onclick="session_near()" >次に</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

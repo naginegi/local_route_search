@@ -1,0 +1,291 @@
+@charset "UTF-8";
+
+*{	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family:monospace;
+	}
+*::-webkit-scrollbar{
+/* 	display:none; */
+}
+a{
+	text-decoration:none;
+	color:white;
+}
+
+.body {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	position: relative;
+	height: 100vh;
+	background-image: url('../../../img/house2.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.area {
+	width: 80vw;
+/* 	height: 100vh; */
+	/*border: 5px solid #468e9f; */
+	position:relative;
+	margin-top: 90px;
+	border-radius: 20px;
+	padding: 0px 25px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+	width: 100%;
+	height: 10%; 
+/* 	border: 1px solid black; */
+	margin-bottom: 50px; 
+	display: flxed;
+	justify-content: center;
+	align-items: center;
+	backdrop-filter: blur(30px);
+}
+
+.title_font {
+	color: white;
+    font-size: 4rem;
+    font-weight: 600;
+    margin-top:2rem;
+}
+
+.contain {
+/* 	min-height: 450px; */
+/* 	width:100%;	 */
+/* 	border: 1px solid; */
+	margin-bottom: 25px;
+/* 	padding: 15px 60px; */
+/* 	position:absolute; */
+/* 	bottom:10%; */
+	display:flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items:center;
+	backdrop-filter: blur(10px);
+	color:white;
+	width: 100%;
+    max-height: 550px;
+    overflow: auto;
+}
+
+.build_form{
+	display: flex;
+	justify-content: space-evenly;
+    width: 100%;
+    font-size: 16pt;
+    margin-bottom: 50px;
+    align-items: flex-start;
+        
+}
+
+.form{
+	display: flex;
+    flex-direction: column;	
+	
+}
+
+.form_label{
+	margin-bottom: 5px;
+}
+	
+.form_input{
+    font-size: 14pt;
+    margin-bottom: 15pt;
+    background-color: floralwhite;
+    box-sizing:border-box;
+    padding:0.3rem;
+    padding-left:0.5rem;
+    min-width: 237px;
+}
+
+/* 捲軸底色 */
+#style-3::-webkit-scrollbar-track {
+/*   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+  background-color: #ebcea500;
+}
+/* //捲軸寬度 */
+#style-3::-webkit-scrollbar {
+  width: 15px;
+  box-shadow: inset 0 0 4px 0px white;
+  border-radius: 10px
+  
+}
+/* //捲軸本體顏色 */
+#style-3::-webkit-scrollbar-thumb {
+  background-color: white;
+  box-shadow: inset 0 0 10px 4px #d5953b;
+  border-radius: 10px
+/*   border: 1px solid black; */
+  
+}
+.nearTextTitle{
+	font-size: 16pt;
+	display:flex;
+	border: 1px solid white;
+	
+}
+
+.nearText{
+	font-size: 16pt;
+	display:flex;
+	border: 1px solid white;
+	flex-direction: column;
+}
+
+.nearForm{
+	display: flex;
+}
+
+.near{
+    border: 1px solid white;
+/*     min-width: 25%; */
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.LineName{
+    width: 40%;
+    
+}
+
+.StationName{
+    width: 35%;
+}
+
+.WarkingTime{
+    width: 25%;    
+}
+
+.Function{
+    width: 20%;
+}
+
+.nearInput{
+	font-size: 16pt;
+	background-color: floralwhite;
+	min-width: 50px;
+}
+
+.nearInputDiv{
+	font-size: 16pt;
+	display: flex;
+}
+
+.nearInputBtn{
+	font-size: 16pt;
+	color:white;
+	background-color: transparent;
+	border: 0px soild
+}
+
+.nearDiv{
+	width: 70vw;
+    min-height: 40vh;
+    border: 1px solid;
+    
+}
+
+.nearSelectDiv{
+	width: 70vw;
+}
+
+.nearSelect{
+	font-size: 14pt;
+    margin-bottom: 15pt;
+    background-color: floralwhite;
+    box-sizing:border-box;
+    padding:0.3rem;
+    padding-left:0.5rem;
+
+}
+
+.btn{
+	display: flex;
+}
+
+.roomListDiv{
+    width: 70vw;
+    height:auto;
+    min-height: 40vh;
+    border: 1px solid white;
+}
+
+.roomList{
+	width: 100%;
+    border: 1px solid white;
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20pt;
+}
+
+.sussPageBg{
+	width: 100vw;
+	height: 100vh;
+    background-color: #00000045;
+    position: fixed;
+	top: -100px;
+	z-index: 1;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+.sussPage{
+	width: 35vw;
+	height: 35vh;
+	background-color: white;
+	border: 1px solid;
+	border-radius: 15px;
+	transition: all 0.5s;
+	background-color: #fbf6ed;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.title_btn{
+	font-size: 14pt;
+    background-color: transparent;
+    border: 1px solid;
+    color: white;
+    margin: 1rem;
+    padding: 0 15px;
+    width: 80px;
+    min-height: 35px;
+}
+
+.title_btn:hover {
+	background-color: white;
+	color:black;
+	transition:all 0.5s;
+}
+
+
+.title_btn1{
+	font-size: 14pt;
+    background-color: transparent;
+    border: 1px solid;
+    color: black;
+    margin: 1rem;
+    padding: 0 15px;
+    width: 80px;
+    min-height: 35px;
+}
+
+.title_btn1:hover {
+	background-color: black;
+	color:white;
+	transition:all 0.5s;
+}

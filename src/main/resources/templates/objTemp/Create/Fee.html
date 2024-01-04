@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>料金情報の追加</title>
+<link th:href="@{/css/obj/objbackCreate.css}" rel="stylesheet"
+	th:src="@{'/css/obj/objbackCreate.css?_=' + @timestamp}" />
+<script type="text/javascript" th:src="@{/js/obj/objbackCreate.js}"></script>
+</head>
+<body class="body" onload="get_session_fee()">
+	<div class="area">
+		<div class="title" th:fragment="stage" style="display: flex;flex-direction: column;">
+				<div class="title_font">
+					<p >料金情報の追加</p>
+				</div>
+				<div class="num">
+				<a href="stage">
+					<span class="title_num" style="color:white; background-color:#468e9f;">0</span>
+				</a>
+				<a href="Pref">
+					<span class="title_num" style="color:white; background-color:#468e9f;">1</span>
+				</a>
+				<a href="Building">
+					<span class="title_num" style="color:white; background-color:#468e9f;">2</span>
+				</a>
+				<a href="Equipment">
+					<span class="title_num" style="color:white; background-color:#468e9f;">3</span>
+				</a>
+					<span class="title_num" style="color:white; background-color:#468e9f;">4</span>
+				
+					<span class="title_num">5</span>
+					<span class="title_num">6</span>
+<!-- 					<span class="title_num">7</span> -->
+				</div>
+			<div class="contain" style="width: 100%;min-height: 300px;">
+			<form class="build_form" th:action="Near" method="POST">
+	  			<div class="form">
+					 <label class="form_label" for="rent">賃金:</label>
+				    <input class="form_input" type="number" id="rent" name="rent" placeholder="ない" required>
+				
+				    <label class="form_label" for="deposit">敷金:</label>
+				    <input class="form_input" type="number" id="deposit" name="deposit" placeholder="ない" required>
+				
+				    <label class="form_label" for="reward">禮金:</label>
+				    <input class="form_input" type="number" id="reward" name="reward" placeholder="ない" required>
+				
+				    <label class="form_label" for="commonExpenses">共益費:</label>
+				    <input class="form_input" type="number" id="commonExpenses" name="commonExpenses" placeholder="ない" required>
+				
+				    <label class="form_label" for="maxAmount">極度額:</label>
+				    <input class="form_input" type="number" id="maxAmount" name="maxAmount" placeholder="ない" required>
+				
+				    <label class="form_label" for="renewal">更新料:</label>
+				    <input class="form_input" type="number" id="renewal" name="renewal" placeholder="ない" required>
+				
+				    <label class="form_label" for="otherExpenses">その他料金:</label>
+				    <input class="form_input" type="text" id="otherExpenses" name="otherExpenses" placeholder="ない" required>
+				
+				    <label class="form_label" for="payMethods">支払う方法:</label>
+				    <input class="form_input" type="text" id="payMethods" name="payMethods" placeholder="ない" required>
+				
+				    <label class="form_label" for="rentPayDate">賃金 支付期限:</label>
+				    <input class="form_input" type="text" id="rentPayDate" name="rentPayDate" placeholder="ない" required>
+				
+				    <label class="form_label" for="commonExpensesDate">共益費 支付期限:</label>
+				    <input class="form_input" type="text" id="commonExpensesDate" name="commonExpensesDate" placeholder="ない" required>	
+
+			  		<label class="form_label" for="lessorName">賃主 名稱:</label>
+				    <input class="form_input" type="text" id="lessorName" name="lessorName" placeholder="ない" required>
+
+			  </div>
+			  <div class="form">
+				
+				    <label class="form_label" for="lessorPhone">賃主 電話:</label>
+				    <input class="form_input" type="text" id="lessorPhone" name="lessorPhone" placeholder="ない" required>
+				
+				    <label class="form_label" for="lessorAddress">賃主 地址:</label>
+				    <input class="form_input" type="text" id="lessorAddress" name="lessorAddress" placeholder="ない" required>
+				
+				    <label class="form_label" for="managerName">管理業者 名稱:</label>
+				    <input class="form_input" type="text" id="managerName" name="managerName" placeholder="ない" required>
+				
+				    <label class="form_label" for="manegerPhone">管理業者 電話:</label>
+				    <input class="form_input" type="text" id="manegerPhone" name="manegerPhone" placeholder="ない" required>
+				
+				    <label class="form_label" for="managerAddress">管理業者 地址:</label>
+				    <input class="form_input" type="text" id="managerAddress" name="managerAddress" placeholder="ない" required>
+				
+				    <label class="form_label" for="leaseDate">契約期間(年):</label>
+				    <input class="form_input" type="text" id="leaseDate" name="leaseDate" placeholder="ない" required>
+				
+				    <label class="form_label" for="leaseStartDate">契約開始期間:</label>
+				    <input class="form_input" type="text" id="leaseStartDate" name="leaseStartDate" placeholder="ない" required>
+				
+				    <label class="form_label" for="leaseEndDate">契約結束期間:</label>
+				    <input class="form_input" type="text" id="leaseEndDate" name="leaseEndDate" placeholder="ない" required>
+				
+				    <label class="form_label" for="checkDate">目的物件の引渡日:</label>
+				    <input class="form_input" type="text" id="checkDate" name="checkDate" placeholder="ない" required>
+				
+				    <label class="form_label" for="riderClause">特約条項 :</label>
+				    <textarea class="form_input" type="text" id="riderClause" name="riderClause" placeholder="ない" style="max-width: 378px; max-height: 120px;min-width: 378px; min-height: 120px;" required></textarea>
+				
+				    <button class="form_btn" type="submit" onclick="session_fee()">次に</button>
+				    <input id="feeInput" type="hidden" name="feeData" />
+				    <input id="prefInput" type="hidden" name="prefData" />
+			
+			  </div>
+			</form>
+
+				<div class="btn">
+					<form action="Equipment">
+<!-- 						<input id="hiddenInput" type="hidden" name="select_pref" />						 -->
+						<button class="title_btn" onclick="clear_session_fee()" >返す</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>物件の追加検索(管理者側)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link th:href="@{/css/obj/objback.css}" rel="stylesheet"
+	th:src="@{'/css/obj/objback.css?_=' + @timestamp}" />
+	
+<script type="text/javascript" th:src="@{/js/obj/objback.js}"></script>
+</head>
+<body class="body" onload="get_building_data()">
+	<div class="area">
+		<div class="title" th:fragment="stage"
+			>
+			<div class="title_font">
+			<a th:href="@{/objTemp/objfront}">
+				<p>物件の追加検索(管理者側)</p>
+			</a>
+			</div>
+		</div>
+		<div class="contain">
+<!-- 		<span>新增</span> -->
+		<a th:href="@{/objTemp/Create/stage}" style="position: absolute;left: 5rem;top: 5rem;">
+		<i class="fa-solid fa-plus" style="margin-left: 2rem;font-size: 30pt;"></i> 
+		</a>
+			<ul id="contain_ol" class="contain_ol">
+			
+				<li class="contain_li" th:each="building,iterStat : ${thy_building_data}" >	
+				   <span th:text="${iterStat.index+1}+."></span>			
+<!-- 				<span th:text="${building.buildingId}"></span> -->
+				<span th:text="${building.buildingName}"></span> 
+<!-- 				th:onclick="'check_buid(\'' + ${building.buildingId} + '\')'" -->
+				&emsp;
+				&emsp;
+				<form action="Create/stage" >
+				<button class="btn" type="submit" style="font-size: 16pt">
+				<i class="fa-solid fa-pen" th:onclick="'check_buid(\'' + ${building.buildingId} + '\')'"></i>
+				</button>
+				<input type="hidden" name="buid" th:value="${building.buildingId}">
+				</form>
+				
+<!-- 				<i class="fa-solid fa-trash-can" th:onclick="'dele_buid(\'' + ${building.buildingId} + '\')'"></i> -->
+				
+				</li>
+				
+			</ul>
+		</div>
+
+		<input id="buildingData" type="hidden" th:value="${building_data}">
+	</div>
+</body>
+</html>

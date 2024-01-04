@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>基本情報の追加</title>
+<link th:href="@{/css/obj/objbackCreate.css}" rel="stylesheet"
+	th:src="@{'/css/obj/objbackCreate.css?_=' + @timestamp}" />
+<script type="text/javascript" th:src="@{/js/obj/objbackCreate.js}"></script>
+</head>
+<body class="body" onload="get_session_building()">
+	<div class="area">
+		<div class="title" th:fragment="stage" style="display: flex;flex-direction: column;">
+				<div class="title_font">
+					<p >基本情報の追加</p>
+				</div>
+				<div class="num">
+				<a href="stage">
+					<span class="title_num" style="color:white; background-color:#468e9f;">0</span>
+				</a>
+				<a href="Pref">
+					<span class="title_num" style="color:white; background-color:#468e9f;">1</span>
+				</a>
+					<span class="title_num" style="color:white; background-color:#468e9f;">2</span>
+					<span class="title_num">3</span>
+					<span class="title_num">4</span>
+					<span class="title_num">5</span>
+					<span class="title_num">6</span>
+<!-- 					<span class="title_num">7</span> -->
+				</div>
+			<div class="contain" style="width: 100%;min-height: 300px;">
+			<form class="build_form" th:action="Equipment" method="POST">
+				<div class="form">
+
+				<label class="form_label" for="buildingName">建物の名称:</label>
+				<input class="form_input" type="text" id="buildingName" name="buildingName" placeholder="ない" required>
+
+    			<label class="form_label" for="buildingPref">都道府県:</label>
+    			<input class="form_input" type="text" id="buildingPref" name="buildingPref"  disabled required>
+
+    			<label class="form_label" for="buildingLocal">市町村:</label>
+    			<input class="form_input" type="text" id="buildingLocal" name="buildingLocal" disabled required>
+
+   			 	<label class="form_label" for="buildingAddress">所 在 地:</label>
+    			<input class="form_input" type="text" id="buildingAddress" name="buildingAddress" placeholder="ない" required>
+
+    			<label class="form_label" for="buildingType">種    類:</label>
+    			<input class="form_input" type="text" id="buildingType" name="buildingType" placeholder="ない" required>
+
+    			<label class="form_label" for="buildingMaterials">構    造:</label>
+    			<input class="form_input" type="text" id="buildingMaterials" name="buildingMaterials" placeholder="ない" required>
+
+
+				
+				</div>
+				<div class="form">
+				
+    			<label class="form_label" for="buildingArea">床 面 積:</label>
+    			<input class="form_input" type="text" id="buildingArea" name="buildingArea" placeholder="ない" required>
+
+    			<label class="form_label" for="roomNum">住戸番号:</label>
+    			<input class="form_input" type="text" id="roomNum" name="roomNum" placeholder="ない" required>
+
+    			<label class="form_label" for="roomLayout">間取り:</label>
+    			<input class="form_input" type="text" id="roomLayout" name="roomLayout" placeholder="ない" required>
+
+    			<label class="form_label" for="yearOfBuild">築年數:</label>
+    			<input class="form_input" type="text" id="yearOfBuild" name="yearOfBuild" placeholder="ない"required>
+
+    			<button class="form_btn" type="submit" onclick="session_building()">次に</button>
+<!-- 			    <input id="hiddenInput" type="hidden" name="buildingData" /> -->
+<!-- 				<input id="buildingInput" type="hidden" /> -->
+				
+				</div>
+
+			</form>
+				<div class="btn">
+					<form th:action=Pref method="get" >
+						<input id="prefInput" type="hidden" name="select_pref"/>
+						<button class="title_btn" type="submit" onclick="clear_session_building()">返す</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

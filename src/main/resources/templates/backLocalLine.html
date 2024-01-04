@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>検索機能(管理者)</title>
+<link th:href="@{/css/back.css}" rel="stylesheet"
+	th:src="@{'/css/front.css?_=' + @timestamp}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type="text/javascript" th:src="@{js/back.js}"></script>
+</head>
+<body class="body" >
+	<!-- onload="localRouteSelect();createLocalSelect()" -->
+	<div class="area">
+
+		<div class="title">
+			<a th:href="@{/frontLocal}">
+				<h1>日本地域路線檢索機能</h1>
+				<h2 class="h2">(管理者側)</h2>
+			</a>
+		</div>
+		<a th:href="@{/backPrefLine}">
+			<i class="fa-solid fa-right-left"></i>
+		</a>
+		<a th:href="@{/backCreate}">
+			<i class="fa-solid fa-plus"></i>
+		</a>
+		<h1>路線検索(市町村):<span th:text="${pref}"></span></h1>
+		<a th:href="@{/backPrefLocal}">
+		<button id="clear" style="font-size: 12pt;">クリア</button>
+		</a>
+		
+		<form th:action="@{/backPrefLocal}" method="post" style="height:50px;display: flex; justify-content: center;">
+		
+			<select id="select_pref" style="width: 150px; font-size: 14pt;" name="select_pref" >
+				<option value=" " selected>都道府を選択</option>
+				<option th:each="line : ${pref_data}" th:text="${line}"
+					th:value="${line}"></option>
+			</select> 
+			
+			<button id="select_pref_btn" type="submit" class="search_btn" style="font-size: 12pt;">地域を検索</button>
+			
+		</form>
+
+		<form th:action="@{/backLocalLine}" method="post" style="height:50px;display: flex; justify-content: center;">
+			<select id="select_local" style="width: 150px;;" name="select_local">
+				<option value=" " selected>市町村を選択</option>
+				<option th:each="local : ${local_data}" th:text="${local.localName}"
+					th:value="${local.localName}"></option>				
+			</select>
+			
+			<button id="select_local_btn" type="submit" class="search_btn" style="font-size: 12pt;">地域を検索</button>
+			<input type="hidden" name="pref" th:value="${pref}">
+		</form>
+
+		<div id="localRoute">
+			<p class="prefRouteText" th:each="line : ${line}" th:text="${line}"
+					th:value="${line}"></p>
+		</div>
+		<hr>
+
+	</div>
+</body>
+</html>

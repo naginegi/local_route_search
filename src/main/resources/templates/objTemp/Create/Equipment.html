@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>設備情報の追加</title>
+<link th:href="@{/css/obj/objbackCreate.css}" rel="stylesheet"
+	th:src="@{'/css/obj/objbackCreate.css?_=' + @timestamp}" />
+<script type="text/javascript" th:src="@{/js/obj/objbackCreate.js}"></script>
+</head>
+<body class="body" onload="get_session_equipment()">
+	<div class="area">
+		<div class="title" th:fragment="stage" style="display: flex;flex-direction: column;">
+				<div class="title_font">
+					<p >設備情報の追加</p>
+				</div>
+				<div class="num">
+				<a href="stage">
+					<span class="title_num" style="color:white; background-color:#468e9f;">0</span>
+				</a>
+				<a href="Pref">
+					<span class="title_num" style="color:white; background-color:#468e9f;">1</span>
+				</a>
+				<a href="Building">
+					<span class="title_num" style="color:white; background-color:#468e9f;">2</span>
+				</a>
+					<span class="title_num" style="color:white; background-color:#468e9f;">3</span>
+					<span class="title_num">4</span>
+					<span class="title_num">5</span>
+					<span class="title_num">6</span>
+<!-- 					<span class="title_num">7</span> -->
+				</div>
+			<div class="contain" style="width: 100%;min-height: 300px;">
+			<form class="build_form" th:action="Fee" method="POST">
+	  			<div class="form">
+	
+			    <label class="form_label" for="electric">電気:</label>
+			    <input class="form_input" type="text" id="electric" name="electric" placeholder="ない" required>
+			
+			    <label class="form_label" for="gas">ガス:</label>
+			    <input class="form_input" type="text" id="gas" name="gas" placeholder="ない" required>
+			
+			    <label class="form_label" for="stove">コンロ:</label>
+			    <input class="form_input" type="text" id="stove" name="stove" placeholder="ない" required>
+			
+			    <label class="form_label" for="waterWorks">上水道:</label>
+			    <input class="form_input" type="text" id="waterWorks" name="waterWorks" placeholder="ない" required>
+		
+			    <label class="form_label" for="sewage">下水道:</label>
+			    <input class="form_input" type="text" id="sewage" name="sewage" placeholder="ない" required>
+			
+			    <label class="form_label" for="kitchen">台所:</label>
+			    <input class="form_input" type="text" id="kitchen" name="kitchen" placeholder="ない" required>
+			
+			    <label class="form_label" for="toilet">トイレ:</label>
+			    <input class="form_input" type="text" id="toilet" name="toilet" placeholder="ない" required>
+			
+			    <label class="form_label" for="bathroom">浴室:</label>
+			    <input class="form_input" type="text" id="bathroom" name="bathroom" placeholder="ない" required>
+			
+			    <label class="form_label" for="basin">洗面台:</label>
+			    <input class="form_input" type="text" id="basin" name="basin" placeholder="ない" required>
+			
+			    <label class="form_label" for="washingMachine">洗濯機:</label>
+			    <input class="form_input" type="text" id="washingMachine" name="washingMachine" placeholder="ない" required>
+			
+			    <label class="form_label" for="airConditioner">エアコン:</label>
+			    <input class="form_input" type="text" id="airConditioner" name="airConditioner" placeholder="ない" required>
+			
+			    <label class="form_label" for="light">照明器具:</label>
+			    <input class="form_input" type="text" id="light" name="light" placeholder="ない" required>
+			
+			    <label class="form_label" for="internet">インターネット:</label>
+			    <input class="form_input" type="text" id="internet" name="internet" placeholder="ない" required>
+			
+			
+			    <label class="form_label" for="trunkRoom">トランクルーム:</label>
+			    <input class="form_input" type="text" id="trunkRoom" name="trunkRoom" placeholder="ない" required>
+<!-- ========================= -->
+			  </div>
+			  <div class="form">			
+			    <label class="form_label" for="roofBalcony">ルーフバルコニー:</label>
+			    <input class="form_input" type="text" id="roofBalcony" name="roofBalcony" placeholder="ない" required>
+			    
+			    <label class="form_label" for="keyNum">鍵(何本):</label>
+			    <input class="form_input" type="text" id="keyNum" name="keyNum" placeholder="ない" required>
+			    
+			    <label class="form_label" for="elevator">エレベーター:</label>
+			    <input class="form_input" type="text" id="elevator" name="elevator" placeholder="ない" required>
+			    
+			    <label class="form_label" for="autoLock">オートロック:</label>
+			    <input class="form_input" type="text" id="autoLock" name="autoLock" placeholder="ない" required>
+			    
+			    <label class="form_label" for="mailBox">メールボックス:</label>
+			    <input class="form_input" type="text" id="mailBox" name="mailBox" placeholder="ない" required>
+			    
+			    <label class="form_label" for=deliveryBox>宅配ボックス:</label>
+			    <input class="form_input" type="text" id="deliveryBox" name="deliveryBox" placeholder="ない" required>
+			    
+			    <label class="form_label" for="parking">駐車場:</label>
+			    <input class="form_input" type="text" id="parking" name="parking" placeholder="ない" required>
+			    
+			    <label class="form_label" for="pet">ペット:</label>
+			    <input class="form_input" type="text" id="pet" name="pet" placeholder="ない" required>
+			    
+			    <label class="form_label" for="furniture">備附家具:</label>
+			    <input class="form_input" type="text" id="furniture" name="furniture" placeholder="ない" required>
+			    
+			    <label class="form_label" for="TV">TV:</label>
+			    <input class="form_input" type="text" id="TV" name="TV" placeholder="ない" required>
+			    
+			    <label class="form_label" for="CATV">CATV:</label>
+			    <input class="form_input" type="text" id="CATV" name="CATV" placeholder="ない" required>
+
+			    <label class="form_label" for="yard">專用庭:</label>
+			    <input class="form_input" type="text" id="yard" name="yard" placeholder="ない" required>
+
+			    <label class="form_label" for="notes">備考:</label>
+			    <textarea class="form_input" type="text" id="notes" name="notes" placeholder="ない" style="max-width: 378px; max-height: 120px;min-width: 378px; min-height: 120px;" required></textarea>
+			    
+			    
+			
+			    <button class="form_btn" type="submit" onclick="session_equipment()">次に</button>
+<!-- 			    <input id="hiddenInput" type="hidden" name="buildingData" /> -->
+			    <input id="equipmentInput" type="hidden" />
+			
+			  </div>
+			</form>
+
+				<div class="btn">
+					<form action="Building">
+<!-- 						<input id="hiddenInput" type="hidden" name="select_pref" />						 -->
+						<button class="title_btn" onclick="clear_session_equipment()" >返す</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>検索機能</title>
+<link th:href="@{/css/front.css}" rel="stylesheet"
+	th:src="@{'/css/front.css?_=' + @timestamp}" />
+<script type="text/javascript" th:src="@{js/front.js}"></script>
+</head>
+
+<body class="body">
+	<div class="area">
+		<div class="title">
+			<a th:href="@{/backPrefLine}">
+				<h1>日本地域路線檢索機能</h1>
+				<h2 class="h2">(クライアント側)</h2>
+			</a>
+		</div>
+		<div class="local_search">
+
+				<h1>路線: <div th:each="line : ${line_data}" ><span th:text="${line}"></span></div></h1>
+			
+			<p></p>
+			<a th:href="@{/frontLine}">
+				<button class="clear_btn">戻る</button>
+			</a>
+
+			<div id="station">
+				<div class="stationName" th:each="station : ${station_data}"
+					th:text="${station.stationName}"></div>
+				<!-- 			<p th:each="station : ${station_data}" th:text="${station.stationName}"> </p> -->
+			</div>
+			<hr>
+		</div>
+</body>
+</html>

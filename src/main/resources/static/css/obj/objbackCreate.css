@@ -1,0 +1,161 @@
+@charset "UTF-8";
+
+.body {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	position: relative;
+	height: 100vh;
+}
+
+.body::before {
+	content: "";
+	background-image: url('../../../img/30006.jpg');
+	opacity: 0.07; 
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: -1;
+}
+
+.area {
+	width: 60vw;
+	height: auto;
+	border: 5px solid #468e9f;
+	margin-top: 50px;
+	border-radius: 20px;
+	padding: 0px 25px;
+}
+
+.title {
+	width: 60vw;
+/* 	height: 650px; */
+	border: 1px solid black;
+	margin: 50px 0px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+/* stage  */
+
+.title_font{
+	font-size: 36pt;
+	margin-bottom: 25px
+}
+
+.num{
+	height: 100px
+}
+
+.title_num{
+	font-size: 20pt;
+    border: 1px solid black;
+    border-radius: 35px;
+    margin: 10px 25px;
+    padding: 12px 20px;
+}
+
+.text{
+	min-height: 250px;
+	display: flex;
+}
+
+.title_text{
+	font-size: 20pt;
+	 padding: 0px 37px;
+	 writing-mode: vertical-lr;
+}
+
+.btn{
+	display: flex;
+	justify-content: center;
+}
+
+.title_btn{
+	background-color: #efefef;
+	font-size: 14pt;
+    margin: 15px 50px;
+    padding: 10px;
+}
+
+.title_btn:hover {
+	background-color: #e5eaff;
+	
+}
+
+/* stage  */
+
+/* 新增buidl_form */
+
+.build_form{
+	display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.form{
+	display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.form_input{
+    margin: 17px 0;
+    font-size: 15pt;
+	border-radius: 15px;
+    box-shadow: 0 0 3px 0px #0a7994;
+    border: 0px;
+    padding: 4px;
+}
+
+.form_label{
+	font-size: 14pt;
+}
+
+.form_btn{
+	margin: 35px 0;
+    font-size: 15pt;
+    padding: 7px;	
+    border-radius: 15px;
+    box-shadow: 0 0 3px 0px #0a7994;
+    border: 0px;
+    background-color: #468e9f;
+    color: white;
+    transition:background-color 0.5s,color 0.5s;
+    
+}
+
+.form_btn:hover{
+    background-color:#b5cfd5; 
+    color: black;
+}
+
+.nearData_list{
+	padding: 0px 75px;
+    font-size: 16pt;
+    min-height: 100px;
+}
+
+.nearData{
+	margin:15px;
+}
+
+.fa-trash-can{
+	margin-left: 50px;
+	margin-top:20px;
+    font-size: 22pt;
+    cursor: pointer;
+}
+.fa-trash-can:hover {
+	color:red;
+	scale:1.1;
+	transition:color 0.5s,scale 0.5s;
+}
+
+
+

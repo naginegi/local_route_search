@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+*{	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family:monospace;
+	}
+*::-webkit-scrollbar{
+	display:none;
+}
+a{
+	text-decoration:none;
+	color:white;
+}
+
+.body {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	position: relative;
+	height: 100vh;
+	background-image: url('../../../img/house2.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.area {
+	width: 60vw;
+/* 	height: 100vh; */
+	/*border: 5px solid #468e9f; */
+	position:relative;
+	margin-top: 100px;
+	border-radius: 20px;
+	padding: 0px 25px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+	width: 50rem;
+	height: 10%; 
+/* 	border: 1px solid black; */
+	margin-bottom: 50px; 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	backdrop-filter: blur(30px);
+}
+
+.title_font {
+	font-size: 32pt;
+/* 	margin-bottom: 25px */
+}
+
+.contain {
+	min-height: 450px;
+	width:50rem;	
+/* 	border: 1px solid; */
+	margin-bottom: 25px;
+	padding: 15px 60px;
+/* 	position:absolute; */
+/* 	bottom:10%; */
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	backdrop-filter: blur(10px);
+	color:white;
+}
+
+.contain_ol {
+	font-size: 24pt;
+	/* color: rgb(255,255,255); */
+}
+
+.btn{
+	color:white;
+	border: 0px solid;
+    background-color: transparent;
+}
+
+.contain_li {
+	/* 	    border: 1px solid; */
+	margin-right: 60px;
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: space-between;
+	/*     cursor: pointer; */
+}
+
+.fa-solid:hover {
+	color: red;
+	transition: color 0.5s;
+	cursor: pointer;
+}

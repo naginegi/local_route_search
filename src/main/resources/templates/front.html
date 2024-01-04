@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>検索機能</title>
+<link th:href="@{/css/front.css}" rel="stylesheet"
+	th:src="@{'/css/front.css?_=' + @timestamp}" />
+<script type="text/javascript" th:src="@{js/front.js}"></script>
+</head>
+
+<body class="body" >
+	<div class="area">
+		<div class="title">
+			<a th:href="@{/back}">
+				<h1>日本地域路線檢索機能</h1>
+				<h2 class="h2">(クライアント側)</h2>
+			</a>
+		</div>
+		<div class="local_search">
+			<h1>地域から検索:
+			<span th:text="${prefName}"></span>
+			</h1>
+			<a th:href="@{/front}">
+			<button class="clear_btn" th:onclick="clearinnerHTML()">クリア</button>
+			</a>
+			<div class="local_input">
+
+			<form th:action="@{/front}" method="post">
+			
+				<select id="select_pref" name="select_pref" style="width: 150px;height: 40px; ">
+					<option value="" disabled selected>地域を選択</option>
+					<option th:each="area : ${total_data}" th:text="${area}"
+						th:value="${area}"></option>
+				</select> 
+				<button type="submit" class="search_btn">檢索</button>
+			</form>
+<!-- 				<a class="search_btn" id="sear_pref_Link" -->
+<!-- 					th:onclick="pref_to_local()" th:href="@{/front(prefName=${select_pref})}"></a> -->
+
+				<!--th:href="@{/front(prefName=${select_pref})}" -->
+				<!--th:href="@{/front/{selectedArea}(selectedArea=${select_pref})}" -->
+				<!--<span th:text="${select_pref}"></span> -->
+
+<!-- 				<button class="search_btn" th:onclick="searchLocals()">地域を検索</button> -->
+			</div>
+			<div id="local">
+				<p  class="localText" th:each="local : ${local_data}" th:text="${local.localName}" ></p>
+<!-- 				<div class="localText" th:text="${select_pref}"></div> -->
+			</div>
+		</div>
+
+		<hr>
+		<h1>路線から検索</h1>
+		<div style="display: flex; justify-content: center;">
+			<button class="search_btn" th:onclick="searchLines()">路線を検索</button>
+		</div>
+		<div id="line"></div>
+		<hr>
+		<div style="display: flex; justify-content: center;">
+			<button class="search_btn" th:onclick="searchStation()">駅を検索</button>
+		</div>
+		<div id="station"></div>
+		<hr>
+
+	</div>
+</body>
+</html>

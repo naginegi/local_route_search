@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>検索機能(管理者)</title>
+<link th:href="@{/css/back.css}" rel="stylesheet"
+	th:src="@{'/css/front.css?_=' + @timestamp}" />
+<script type="text/javascript" th:src="@{js/back.js}"></script>
+</head>
+<body class="body">
+	<!-- onload="localRouteSelect();createLocalSelect()" -->
+	<div class="area">
+
+		<div class="title">
+			<a th:href="@{/frontLocal}">
+				<h1>日本地域路線檢索機能</h1>
+				<h2 class="h2">(管理者側)</h2>
+			</a>
+		</div>
+
+		<div class="local_search">
+			<h1>路線検索(都道府)</h1>
+
+			<button id="clear" th:onclick="clearinnerHTML()"
+				style="font-size: 12pt;">クリア</button>
+
+			<div style="display: flex; justify-content: center;">
+				<select id="select_pref" style="width: 150px; font-size: 14pt;"
+					onchange="localRouteSelect()">
+					<option value="" disabled selected>地域を選択</option>
+					<option th:each="line : ${pref_data}" th:text="${line}"
+						th:value="${line}"></option>
+				</select>
+
+				<button  class="search_btn" th:onclick="sear_prefRoute()"
+					style="font-size: 12pt;">地域を検索</button>
+			</div>
+			<div id="prefRoute"></div>
+		</div>
+
+		<hr>
+		<h1>路線検索(市町村)</h1>
+		<div style="display: flex; justify-content: center;">
+			<select id="select_local" style="width: 150px;">
+				<option value="" disabled selected>地域を選択</option>
+				<!-- 
+				<option th:each="local : ${local_data}" th:text="${local}"
+					th:value="${local}"></option>
+					<option id="option"></option>
+			 -->
+			</select>
+			<button class="search_btn" th:onclick="sear_localRoute()"
+				style="font-size: 12pt;">地域を検索</button>
+		</div>
+
+		<div id="localRoute"></div>
+		<hr>
+
+		<h1>路線や駅追加</h1>
+		<div class="create_area">
+			<label>都道府</label> <select id="prefName"
+				style="width: 203px; font-size: 14pt; margin-bottom: 20px;"
+				onchange="createLocalSelect()">
+				<option value="" disabled selected>地域を選択</option>
+				<option th:each="pref : ${pref_data}" th:text="${pref}"
+					th:value="${pref}"></option>
+			</select>
+			<!-- 
+			<input type="text" id="prefName" style="margin-bottom: 20px;font-size: 12pt;"> 
+			 -->
+			<label>市町村</label>
+			 <select id="localName"	style="width: 203px; font-size: 14pt; margin-bottom: 20px;" onchange="createLineSelect()">
+			　<option value="" disabled selected>地域を選択</option>
+			 </select>
+			<!-- 
+			<input type="text" id="localName" style="margin-bottom: 20px;font-size: 12pt;"> 
+			 -->
+			<label>路線名</label> 
+			<!-- 
+			<input type="text" id="lineName" style="margin-bottom: 20px; font-size: 12pt;"> 
+			 
+			 -->
+			<select id="lineName" style="width: 203px; font-size: 14pt; margin-bottom: 20px;" onchange="createInputLine()">
+			　<option value="" disabled selected>路線を選択</option>
+			 </select>
+			 <input type="text" id="customInput" style="display: none;width: 203px; font-size: 12pt;margin-bottom: 20px;height: 24px;" placeholder="路線名を入力してください">
+			
+			
+			
+			<label>駅名</label>
+			<input type="text" id="stationName"	style="margin-bottom: 20px; font-size: 12pt;"> 
+				
+			<label>住所</label>
+			<input type="text" id="address"	style="margin-bottom: 20px; font-size: 12pt;">
+
+			<button class="create_btn" th:onclick="create()"
+				style="font-size: 12pt;">追加</button>
+		</div>
+		<hr>
+
+	</div>
+</body>
+</html>

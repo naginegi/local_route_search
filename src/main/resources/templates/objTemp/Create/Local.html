@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>create Local page</title>
+<link th:href="@{/css/obj/objbackCreate.css}" rel="stylesheet"
+	th:src="@{'/css/obj/objbackCreate.css?_=' + @timestamp}" />
+<script type="text/javascript" th:src="@{/js/obj/objbackCreate.js}"></script>
+</head>
+<body class="body" onload="get_session_local()">
+	<div class="area">
+		<div class="title" th:fragment="stage" style="display: flex;flex-direction: column;">
+				<div class="title_font">
+					<p >create Local</p>
+				</div>
+				<div class="num">
+					<span class="title_num" style="color:white; background-color:#468e9f;">0</span>
+					<span class="title_num" style="color:white; background-color:#468e9f;">1</span>
+					<span class="title_num" style="color:white; background-color:#468e9f;">2</span>
+					<span class="title_num">3</span>
+					<span class="title_num">4</span>
+					<span class="title_num">5</span>
+					<span class="title_num">6</span>
+					<span class="title_num">7</span>
+				</div>
+			<div class="contain">
+			<form th:action="Building" method="POST" style="height:50px;display: flex; justify-content: center;">
+				<select id="select_loacl" style="width: 150px; font-size: 14pt;" name="select_loacl">
+					<option value="" disabled selected>地域を選択</option>
+<!-- 					<option th:each="local : ${local_data}" th:text="${local.localName}" th:value="${local.localName}"></option> -->
+<!-- 					<option th:unless="${local_data != null and local_data.size() > 0}">No options available</option> -->
+<!-- 					<option th:each="local : ${local_data}" th:text="${local.localName}" -->
+<!-- 						th:value="${local.localName}"></option> -->
+				</select>
+<!-- 					<input id="hiddenInput_local_data" type="hidden" th:attr="value=${local_data}" /> -->
+				<button id="select_pref_btn" type="submit" onclick="session_local()" class="search_btn" style="font-size: 12pt;">下一步</button>
+				<input type="hidden" id="localData" th:value="${local_data}"/>
+			</form>
+				<div class="btn">
+					<form action="Pref">
+						<input id="hiddenInput" type="hidden" name="select_pref" th:value="${select_pref}"/>
+						<button class="title_btn" onclick="claer_session_local()">返回</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
