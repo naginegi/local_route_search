@@ -61,30 +61,46 @@ public class ObjectServiceImpl implements ObjectService{
 
 	@Override
 	public ObjectRes DataSave(ObjectReq req) {
-		int buId = buDao.save(req.getBuildingData()).getBuId();
 		
-		req.getCommonEquipmentData().setBuId(buId);
-		cmEqDao.save(req.getCommonEquipmentData());
+		//
+		BuildingData bu = req.getBuildingData();
+		buDao.saveBuilding(bu.getBuName(), bu.getBuType(), bu.getBuYear(), bu.getBuMaterials(), bu.getBuPref(), bu.getBuLocal(), bu.getBuAddress(), bu.getBuNotes());
+		int buId = buDao.findBuId();
+		
+		//
+		//int buId = buDao.save(req.getBuildingData()).getBuId();
+		
+		//
+		CommonEquipmentData cmEq = req.getCommonEquipmentData();
+//		req.getCommonEquipmentData().setBuId(buId);
+		cmEqDao.saveCmeq(buId, cmEq.getElevator(), cmEq.getAutoLock(), cmEq.getMailBox(), cmEq.getDeliveryBox(), cmEq.getParking(), cmEq.getCmeqNotes());
+		
+//		cmEqDao.save(req.getCommonEquipmentData());
 		
 		List<NearData> nearList = req.getNearList();
 		for(NearData near:nearList) {
-			near.setBuId(buId);
+//			near.setBuId(buId);
+			nearDao.saveNear(buId, near.getNearLine(), near.getNearStation(), near.getWarkingTime());
 		}
-		nearDao.saveAll(nearList);
+//		nearDao.saveAll(nearList);
 		
 		for(ObjRoomDataVo roomData:req.getRoomDataVo()) {
 			RoomData room = roomData.getRoomData();
 			EquipmentData eq = roomData.getEquipmentData();
 			FeeData fee = roomData.getFeeData();
-			room.setBuId(buId);
-			eq.setBuId(buId);
-			fee.setBuId(buId);
+//			room.setBuId(buId);
+//			eq.setBuId(buId);
+//			fee.setBuId(buId);
 			
 			room.setLastUpdated(LocalDate.now());
-			
-			roomDao.save(room);
-			eqDao.save(eq);
-			feeDao.save(fee);
+	
+			//
+			roomDao.saveRoom(buId, room.getRoomNum(), room.getRoomArea(), room.getRoomLayout(), room.getLastUpdated());
+			eqDao.saveEquipment(buId, eq.getRoomNum(), eq.getElectric(), eq.getGas(), eq.getStove(), eq.getWaterWorks(), eq.getSewage(), eq.getKitchen(), eq.getToiBath(), eq.getWashingMachine(), eq.getWaterHeater(), eq.getAirConditioner(), eq.getLight(), eq.getInternet(), eq.getTrunkRoom(), eq.getRoofBalcony(),eq.getTv(), eq.getCatv(), eq.getYard(), eq.getFurniture());
+			feeDao.saveFee(buId, fee.getRoomNum(), fee.getRent(), fee.getDeposit(), fee.getReward() ,fee.getCommonExpenses(), fee.getRenewal(), fee.getOtherExpenses(), fee.getFeeNotes());
+//			roomDao.save(room);
+//			eqDao.save(eq);
+//			feeDao.save(fee);
 		}
 		
 		
